@@ -54,9 +54,8 @@ int main(void) {
 
     while (1) {
         // if read buffer is not empty
-        if (usart_interrupt_flag_get(USART0, USART_INT_FLAG_RBNE) == SET) {
+        if (usart_flag_get(USART0, USART_INT_FLAG_RBNE) == SET) {
             // while read buffer is not empty
-            cnt = 0;
             while (usart_interrupt_flag_get(USART0, USART_INT_FLAG_RBNE) == SET) {
                 // read character from USART0
                 c = usart_data_receive(USART0);
